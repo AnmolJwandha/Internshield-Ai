@@ -45,3 +45,11 @@ Input: `text`, `website`, `company_name`
 ## The six mechanism names (exact spelling)
 payment_request, urgency, guaranteed_placement, fake_certificate,
 sensitive_document_request, off_platform_contact
+
+## Edge cases (agreed Day 5)
+- `kind` is one of: `paid`, `unpaid`, `unknown`.
+- `prob` is a number from 0 to 1.
+- No stipend found: `{"monthly_inr": null, "kind": "unknown", "percentile": null}`
+- Unpaid: `{"monthly_inr": 0, "kind": "unpaid", "percentile": null}`
+- No website given: `website_checks` is `[]`.
+- Empty text, or text over 20,000 characters: HTTP error with a clear message (both endpoints).
